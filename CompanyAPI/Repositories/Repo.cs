@@ -25,12 +25,9 @@ namespace CompanyAPI.Repositories
             return await db.Set<T>().ToListAsync();
         }
 
-        public async Task<T> GetById(int id, int second_id = 0)
+        public async Task<T> GetById(int id)
         {
-            if (second_id == 0)
-                return await db.Set<T>().FindAsync(id);
-            else
-                return await db.Set<T>().FindAsync(id, second_id);
+            return await db.Set<T>().FindAsync(id);
         }
 
         public async Task<int> Edit(T editedEntity)

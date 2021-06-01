@@ -14,9 +14,9 @@ namespace CompanyAPI.Controllers
     [ApiController]
     public class Works_onController : ControllerBase
     {
-        private readonly IRepo<Works_on> worksRepo;
+        private readonly IWorkRepo worksRepo;
 
-        public Works_onController(IRepo<Works_on> worksRepo)
+        public Works_onController(IWorkRepo worksRepo)
         {
             this.worksRepo = worksRepo;
         }
@@ -46,7 +46,7 @@ namespace CompanyAPI.Controllers
         [HttpGet("{id}/{second_id}")]
         public async Task<ActionResult<WorkViewModel>> GetWorks_on(int id, int second_id)
         {
-            var work = await worksRepo.GetById(id, second_id);
+            var work = await worksRepo.GetWorkById(id, second_id);
 
             if (work == null)
             {
@@ -109,7 +109,7 @@ namespace CompanyAPI.Controllers
         [HttpDelete("{id}/{second_id}")]
         public async Task<IActionResult> DeleteWorks_on(int id, int second_id)
         {
-            var works_on = await worksRepo.GetById(id, second_id);
+            var works_on = await worksRepo.GetWorkById(id, second_id);
             if (works_on == null)
             {
                 return NotFound();

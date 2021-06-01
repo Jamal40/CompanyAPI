@@ -97,6 +97,7 @@ namespace CompanyAPI
 
             //services.AddScoped<IRepo<Employee>, Repo<Employee>>();
             services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+            services.AddScoped<IWorkRepo, WorkRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

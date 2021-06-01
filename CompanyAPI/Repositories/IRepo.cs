@@ -10,7 +10,7 @@ namespace CompanyAPI.Repositories
         Task<int> Edit(T editedEntity);
         bool EntityExists(int id, int sceond_id = 0);
         Task<List<T>> GetAll(bool include = false);
-        Task<T> GetById(int id, int second_id = 0);
+        Task<T> GetById(int id);
         Task<int> Remove(T removedEntity);
     }
 }
