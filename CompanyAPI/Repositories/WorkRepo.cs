@@ -17,7 +17,7 @@ namespace CompanyAPI.Repositories
         }
         public async Task<Works_on> GetWorkById(int id, int second_id)
         {
-            return await db.Works_on.Include(w => w.Employee).Include(w => w.ProjectNo).FirstOrDefaultAsync(w => w.EmpNo == id && w.ProjectNo == second_id);
+            return await db.Works_on.Include(w => w.Employee).Include(w => w.Project).FirstOrDefaultAsync(w => w.EmpNo == id && w.ProjectNo == second_id);
         }
     }
 }
