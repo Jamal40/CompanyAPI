@@ -17,8 +17,11 @@ namespace CompanyAPI.Repositories
             db = injectedContext;
         }
 
-        public async Task<List<T>> GetAll()
+        public async Task<List<T>> GetAll(bool include = false)
         {
+            if (include)
+                return await db.Set<T>().Include("Project").Include("Employee").ToListAsync();
+
             return await db.Set<T>().ToListAsync();
         }
 

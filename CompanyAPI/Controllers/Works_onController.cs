@@ -23,23 +23,47 @@ namespace CompanyAPI.Controllers
 
         // GET: api/Works_on
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Works_on>>> GetWorks_on()
+        public async Task<ActionResult<IEnumerable<WorkViewModel>>> GetWorks_on()
         {
-            return await worksRepo.GetAll();
+            List<WorkViewModel> Works = new List<WorkViewModel>();
+            var oldWorks = await worksRepo.GetAll(true);
+            foreach (var work in oldWorks)
+            {
+                Works.Add(new WorkViewModel
+                {
+                    ProjectNo = work.ProjectNo,
+                    EmpNo = work.EmpNo,
+                    Enter_Date = work.Enter_Date,
+                    Job = work.Job,
+                    ProjectName = work.Project.ProjectName,
+                    EmployeeName = work.Employee.Fname
+                });
+            }
+            return Works;
         }
 
         // GET: api/Works_on/5
         [HttpGet("{id}/{second_id}")]
-        public async Task<ActionResult<Works_on>> GetWorks_on(int id, int second_id)
+        public async Task<ActionResult<WorkViewModel>> GetWorks_on(int id, int second_id)
         {
-            var works_on = await worksRepo.GetById(id, second_id);
+            var work = await worksRepo.GetById(id, second_id);
 
-            if (works_on == null)
+            if (work == null)
             {
                 return NotFound();
             }
 
-            return works_on;
+            WorkViewModel result = new WorkViewModel
+            {
+                ProjectNo = work.ProjectNo,
+                EmpNo = work.EmpNo,
+                Enter_Date = work.Enter_Date,
+                Job = work.Job,
+                ProjectName = work.Project.ProjectName,
+                EmployeeName = work.Employee.Fname
+            };
+
+            return result;
         }
 
         // PUT: api/Works_on/5
