@@ -14,6 +14,8 @@
 
 8. Tested the authentication and they wereking well.
 
+10. Handled CORS to be able to access the app from another independet app.
+
 9. I added a flavour to the project, so I tried to consume these APIs using Angular App. 
 
 10. Angular app is secured using ASP.Net Core Authentication.
