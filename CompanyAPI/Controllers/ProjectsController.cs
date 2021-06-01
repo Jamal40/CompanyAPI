@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 using CompanyAPI.Data;
 using CompanyAPI.Models;
 using CompanyAPI.Repositories;
@@ -16,11 +16,10 @@ namespace CompanyAPI.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly IRepo<Project> projectRepo;
-        private readonly CompanyContext _context;
 
-        public ProjectsController(CompanyContext context, IRepo<Project> projectRepo)
+
+        public ProjectsController( IRepo<Project> projectRepo)
         {
-            _context = context;
             this.projectRepo = projectRepo;
         }
 
