@@ -19,3 +19,12 @@
 9. I added a flavour to the project, so I tried to consume these APIs using Angular App. 
 
 10. Angular app is secured using ASP.Net Core Authentication.
+
+
+A quick demo for the project:
+https://drive.google.com/file/d/1L6GW1-OMtwITujEdLf1PxsuGNyZbX2rJ/view?usp=sharing
+
+
+PS: I wanted to deploy it on Azure, so that it can be easily tested, but unfortunately Microsoft has disabled my Student Account.
+
+Thanks!
