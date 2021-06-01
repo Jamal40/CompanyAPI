@@ -11,6 +11,7 @@ using CompanyAPI.Repositories;
 namespace CompanyAPI.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
